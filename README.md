@@ -1,4 +1,4 @@
-# CC4D_sex_stratified_analysis_plan Jan 2024
+# Cardiogram+C4D sex stratified analysis plan for X-chr and autosomes (Jan 2024)
 ## Rational 
 The impressive progress in understanding the genetic architecture of CAD that has been achieved in recent months by collaborative efforts from CARDIoGRAMplusC4D and the Million Veterans Project, enhanced by individual studies as well as international biobanks (e.g. Japan Biobank, UK Biobank), has resulted in unprecedented data availability in the field. Genome-wide summary data (i.e. association statistics) from these efforts is currently generated for all autosomal chromosomes. Combining data from these resources in a transethnic meta-analysis (and related analyses), and ex-panding upon the contributing cohorts, in advance of public data release is a timely priority that would further enhance our understanding of the transethnic genetic architecture of CAD
 
@@ -28,5 +28,7 @@ For each sex and all chromosomes, including the X-chr, please test additive mode
 * Sex  stratified autosomal chromosome: [Sex_stratified_autosomal_chr.md](https://github.com/TcheandjieuLab/CC4D_sex_stratified_analysis_plan/blob/main/Sex_stratified_autosomal_chr.md)
 * Sex Stratified X-chromosome: [Xchr_analysis_plan.md ](https://github.com/TcheandjieuLab/CC4D_sex_stratified_analysis_plan/blob/main/Xchr_analysis_plan.md)
 
+## Contact: 
+If you have any question or concern please contact Catherine Tcheanjieu: Catherine.tcheandjieu@gladstone.ucsf.edu, Silke Szymczak: silke.szymczak@uni-luebeck.de; Inke R. König: inke.koenig@imbs.uni‐luebeck.de
 
 
