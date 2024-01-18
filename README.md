@@ -25,8 +25,8 @@ Note: Please specify if you are using population-based controls
 
 ## Association testing 
 For each sex and all chromosomes, including the X-chr, please test additive models using logistic regression, accounting for genotype imputation uncertain-ty (i.e. SNP probability or dosage). For studies that have already conducted analyses, please dis-cuss the models used (for example, some studies may have already adjusted for age and this is not considered a substantial deviation from the analysis plan). Use study appropriate software to ac-count for (or exclude as appropriate) relatedness. Detail analysis plan can be found at:
-* Sex  stratified autosomal chromosome: Sex_stratified_autosomal_chr.md
-* Sex Stratified X-chromosome: Xchr_analysis_plan.md 
+* Sex  stratified autosomal chromosome: [Sex_stratified_autosomal_chr.md](https://github.com/TcheandjieuLab/CC4D_sex_stratified_analysis_plan/blob/main/Sex_stratified_autosomal_chr.md)https://github.com/TcheandjieuLab/CC4D_sex_stratified_analysis_plan/blob/main/Sex_stratified_autosomal_chr.md
+* Sex Stratified X-chromosome: [Xchr_analysis_plan.md ](https://github.com/TcheandjieuLab/CC4D_sex_stratified_analysis_plan/blob/main/Xchr_analysis_plan.md)https://github.com/TcheandjieuLab/CC4D_sex_stratified_analysis_plan/blob/main/Xchr_analysis_plan.md
 
 
 
