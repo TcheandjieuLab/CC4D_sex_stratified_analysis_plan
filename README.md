@@ -8,7 +8,7 @@ The impressive progress in understanding the genetic architecture of CAD that ha
 -	To undertake the sex stratified autosomal-chromosome ancestry specific and multi-ancestry meta-analysis using all cohorts currently part of the Card+C4D extension.
 
 ## Case/Control definition
-** Note: We anticipate using the CAD definition that was used for the autosomal chromosome analysis for cohort that have already provided sex combined analysis (filled out the specific definition of CAD that was used, this will help standardize defi-nition of CAD for all cohorts). below are detailed, case/control adjudication for new study undertaking the analysis.
+** Note: We anticipate using the CAD definition that was used for the autosomal chromosome analysis for cohort that have already provided sex combined analysis (filled out the specific definition of CAD that was used, this will help standardize defi-nition of CAD for all cohorts). Below are detailed, case/control adjudication for new study undertaking the analysis. **
 
 ### Case definition
 Coronary artery phenotypes (preference is for the following or minor variation to it – please do contact us to discuss any concerns or variations). We wish to avoid overly soft phenotypes as pre-vious work has established the limited value of such cases. Consequently, for de novo studies un-dertaking new analyses, cases should adhere to the following as closely as possible. However, in-dividual studies should use insights into their data resource to adapt appropriately (and provide de-tails of the phenotype provided).
