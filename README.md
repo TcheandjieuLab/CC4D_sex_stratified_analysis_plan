@@ -13,7 +13,7 @@ The impressive progress in understanding the genetic architecture of CAD that ha
 ### Case definition
 Coronary artery phenotypes (preference is for the following or minor variation to it – please do contact us to discuss any concerns or variations). We wish to avoid overly soft phenotypes as pre-vious work has established the limited value of such cases. Consequently, for de novo studies un-dertaking new analyses, cases should adhere to the following as closely as possible. However, in-dividual studies should use insights into their data resource to adapt appropriately (and provide de-tails of the phenotype provided).
 -	Confirmed MI (see below)
--	> 50% stenosis in at least one coronary vessel at angiography with validation from hospital records
+-	Over 50% stenosis in at least one coronary vessel at angiography with validation from hospital records
 -	Validated history of percutaneous transluminal coronary angioplasty (PTCA) or coronary artery bypass graft surgery (CABG)
 -	Validated angina, defined as symptoms + confirmation from at least one non-invasive provocation test e.g. scintigraphy or exercise treadmill test (angina cases based only on self-report angina alone should not be included).
 -	Death confirmed to be due to CAD or highly likely to be due to CAD
