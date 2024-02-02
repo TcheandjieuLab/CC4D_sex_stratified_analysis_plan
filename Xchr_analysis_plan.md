@@ -1,6 +1,6 @@
 # X Chr Analysis Plan
 
-## Step 1: Analysis that are helpfull for QC of the X-chromosome
+## Section 1 : Analysis for QC of the X-chromosome
 
 In this section, we will perform analysis that are helpful for quality control of the X-chromosome using PLINK(https://www.cog-genomics.org/plink/2.0/). The set of analysis needed are as follow: 
 1. **Rate of heterozygote in males only** this is to investigate whether some SNPs have inds with heterozygote alleles (this is an indicator of potential genotyping or imputation errors)
@@ -40,9 +40,10 @@ Plink2a \
 --hardy \
 --out $PATH_OUTPUT 
 
-## Section 2
-
-
+## Section 2: In this section we will perfom analyis of CAD for the X chromosome separately for each sex
+The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow the inclusion of related individuals while PLINK do not not. we will consider 2 different model :
+1. Model 1: X-chromosome analysis assuming inactivation of the sex chromosome (allelic coding in females as 0/1/2 and in male as 0/1)
+1.a. 
 ### Section 2.1
 
 ### Section 2.2
