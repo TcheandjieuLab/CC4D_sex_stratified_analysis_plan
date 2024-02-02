@@ -51,7 +51,7 @@ Plink2a \
 ## Section 2: In this section we will perfom analyis of CAD for the X chromosome separately for each sex
 The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow the inclusion of related individuals while PLINK do not not. we will consider 2 different model :
 1. Model 1: X-chromosome analysis assuming inactivation of the sex chromosome (allelic coding in females as 0/1/2 and in male as 0/1)
-1.a. 
+1.a. model for females (using PLINK)
 
 ### Section 2.1
 
