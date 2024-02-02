@@ -30,8 +30,11 @@ For each sex and all chromosomes, including the X-chr, please test additive mode
 
 ## Computational tools
 PLINK (https://www.cog-genomics.org/plink/2.0/)
+
 REGENIE (https://rgcgithub.github.io/regenie/)
+
 SAIGE (https://saigegit.github.io/SAIGE-doc/)
+
 XWAS (https://github.com/KeinanLab/xwas-3.0)
 
 ## Contact: 
