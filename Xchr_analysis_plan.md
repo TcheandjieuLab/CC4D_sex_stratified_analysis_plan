@@ -35,11 +35,8 @@ Plink2a \
 --hardy \
 --out $PATH_OUTPUT 
 
-* Foo
-* Bar
-* Baz
-
 ## Section 2
+
 
 ### Section 2.1
 
