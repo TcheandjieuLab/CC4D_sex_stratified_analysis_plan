@@ -64,6 +64,10 @@ This section provides examples scripts for X-chr analysis using both REGENIE and
 2. X-chr analysis using SAIGE
 
 
-### Section 2.2
+### Section 4: description of the summary results to provide for the X-chromosome analysis
+This section describe the summary results of the analysis performed for the X-chromosome
+1. table content summary results for the QC
+2. table content summary results association testing
+   
 
 ## Section 3
