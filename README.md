@@ -28,6 +28,12 @@ For each sex and all chromosomes, including the X-chr, please test additive mode
 * Sex  stratified autosomal chromosome: [Sex_stratified_autosomal_chr.md](https://github.com/TcheandjieuLab/CC4D_sex_stratified_analysis_plan/blob/main/Sex_stratified_autosomal_chr.md)
 * Sex Stratified X-chromosome: [Xchr_analysis_plan.md ](https://github.com/TcheandjieuLab/CC4D_sex_stratified_analysis_plan/blob/main/Xchr_analysis_plan.md)
 
+## Computational tools
+PLINK (https://www.cog-genomics.org/plink/2.0/)
+REGENIE (https://rgcgithub.github.io/regenie/)
+SAIGE (https://saigegit.github.io/SAIGE-doc/)
+XWAS (https://github.com/KeinanLab/xwas-3.0)
+
 ## Contact: 
 If you have any question or concern please contact any of the following: Catherine Tcheanjieu: Catherine.tcheandjieu@gladstone.ucsf.edu, Silke Szymczak: silke.szymczak@uni-luebeck.de; 
 Inke R. König: inke.koenig@imbs.uni‐luebeck.de; Stravoula Kanoni s.kanoni@qmul.ac.uk 
