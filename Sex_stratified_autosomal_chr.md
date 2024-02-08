@@ -8,7 +8,7 @@ Primary model here will be:
 a. Males: CAD(all CAD cases vs. all non-CAD controls) = $SNP + Study covariates 
 b. Females: CAD (all CAD cases vs. all non-CAD controls) = $SNP + Study covariates 
 
-### 1. Exmaple script using PLINK
+### 1. Example script using PLINK
 ### 2. Example script using REGENIE
 ### 3. Example script using SAIGE
 
