@@ -33,9 +33,9 @@ c. The should include the following filtering criteria: SNPs with imputation qua
 **HWE**: (should be used on the best guest genotypes, can be obtain from Plink independently)	P-value of the HWE test 	numerical	3.00E-06
 ![image](https://github.com/TcheandjieuLab/CC4D_sex_stratified_analysis_plan/assets/32551968/8f09b92d-9481-4f83-8a97-18d3047bc5fe)
 
-## Section 2: sex interaction model
+## Section 2: sex interaction model (coming up soon. will be using the analytical pipeline as GLGC)
 
-## list of variables to provide in the summary statistics 
+###list of variables to provide in the summary statistic 
 
 
 ***Note: For studies that have already conducted analyses, please discuss the models used (for example, some studies may have already adjusted for age and this is not considered a material deviation from the analysis plan). Use study appropriate software to account for (or exclude as appropriate) relatedness.***
