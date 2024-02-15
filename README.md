@@ -38,7 +38,6 @@ SAIGE (https://saigegit.github.io/SAIGE-doc/)
 XWAS (https://github.com/KeinanLab/xwas-3.0)
 
 ## Contact: 
-If you have any question or concern please contact any of the following: Catherine Tcheanjieu: Catherine.tcheandjieu@gladstone.ucsf.edu, Silke Szymczak: silke.szymczak@uni-luebeck.de; 
-Inke R. König: inke.koenig@imbs.uni‐luebeck.de; Stravoula Kanoni s.kanoni@qmul.ac.uk 
+If you have any question or concern please contact any of the following: Catherine Tcheanjieu: Catherine.tcheandjieu@gladstone.ucsf.edu, Silke Szymczak: silke.szymczak@uni-luebeck.de; Stravoula Kanoni s.kanoni@qmul.ac.uk 
 
 
