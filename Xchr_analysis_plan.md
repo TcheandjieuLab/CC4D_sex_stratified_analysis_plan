@@ -61,7 +61,7 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
 This section provides examples scripts for X-chr analysis using both REGENIE and SAIGE
 
 1. X-CHR analysis using REGENIE
-2. X-chr analysis using SAIGE
+2. X-chr analysis using SAIGE (if cohort are using SAIGE already)
 
 
 ## Section 4: description of the summary results to provide for the X-chromosome analysis
