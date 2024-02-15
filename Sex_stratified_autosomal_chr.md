@@ -12,7 +12,9 @@ b. Females: CAD (all CAD cases vs. all non-CAD controls) = $SNP + Study covariat
 ### 2. Example script using REGENIE
 ### 3. Example script using SAIGE
 
-## Section 2: description data to be provided
+## Section 3: sex interaction model
+
+## Section 3: description data to be provided
 
 
 ***Note: For studies that have already conducted analyses, please discuss the models used (for example, some studies may have already adjusted for age and this is not considered a material deviation from the analysis plan). Use study appropriate software to account for (or exclude as appropriate) relatedness.***
