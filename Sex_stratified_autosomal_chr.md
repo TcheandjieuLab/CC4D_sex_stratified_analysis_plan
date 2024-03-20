@@ -66,7 +66,9 @@ done
 ```
 #### File formats #### 
 pheno.txt: FID IID CAD PC1 PC2 PC3 PC4 PC5 Sex Age
+
 id_females: FID IID
+
 id_males: FID IID
 
 ***The file is space-delimited and can have many more covariates. Users have the flexibility to use the set of covariates in the regenie command-line above.***
