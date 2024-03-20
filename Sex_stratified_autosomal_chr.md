@@ -47,7 +47,7 @@ regenie \
 --out results_males
 ```
 
-* If your genomic data is split by chromosome, you can create use a loop style function to run all chrs with a single script as follow:*
+**If your genomic data is split by chromosome, you can create use a loop style function to run all chrs with a single script as follow:**
 ```
 for i in `seq 1 22`
 do
@@ -65,16 +65,11 @@ regenie \
 done
 ```
 #### File formats #### 
-#pheno.txt
-# FID IID CAD PC1 PC2 PC3 PC4 PC5 Sex Age
+pheno.txt: FID IID CAD PC1 PC2 PC3 PC4 PC5 Sex Age
+id_females: FID IID
+id_males: FID IID
 
-#id_females
-# FID IID
-
-#id_males
-# FID IID
-
-# The file is space-delimited and can have many more covariates. Users have the flexibility to use the set of covariates in the regenie command-line above.
+***The file is space-delimited and can have many more covariates. Users have the flexibility to use the set of covariates in the regenie command-line above.***
 
 ### 3. Example script using SAIGE
 
