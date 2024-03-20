@@ -16,7 +16,7 @@ c. The should include the following filtering criteria: SNPs with imputation qua
 Regenie runs in two steps. Before starting the first step, one needs to generate a plink file containing a subset of independent SNPs (e.g., 100K as recommended by Regenie). This file will be used to run H0 and account for relatedness between subjects.
 In the first step, 100K.bed 100K.bim 100K.fam will be the files we will use (file containing all inds and 100k SNPs).
 
-# Step 1: Perform H0. Two runs will be performed, one for females and one for males. We need to create two files that contain FID and IID of females and males (i.e., id_females and id_males, with header (FID IID)).
+#### Step 1: Perform H0. Two runs will be performed, one for females and one for males. We need to create two files that contain FID and IID of females and males (i.e., id_females and id_males, with header (FID IID)).
 ```
 ## H0 in Females
 regenie \
@@ -32,7 +32,7 @@ regenie \
 --out H0_males
 ```
 
-# Step 2: Perform H1. This step runs the association test for SNVs. In the following case, chromosomes were aggregated in one plink file. If users have data split by chromosome, a loop needs to be used to run all chromosomes.
+#### Step 2: Perform H1. This step runs the association test for SNVs. In the following case, chromosomes were aggregated in one plink file. If users have data split by chromosome, a loop needs to be used to run all chromosomes.
 ```
 # H1 in Females
 regenie \
@@ -47,7 +47,7 @@ regenie \
 --out results_males
 ```
 
-## If your genomic data is split by chromosome, you can create use a loop style function to run all chrs with a single script as follow:
+* If your genomic data is split by chromosome, you can create use a loop style function to run all chrs with a single script as follow:*
 ```
 for i in `seq 1 22`
 do
