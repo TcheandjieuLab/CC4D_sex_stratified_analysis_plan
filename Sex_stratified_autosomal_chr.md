@@ -11,7 +11,49 @@ c. The should include the following filtering criteria: SNPs with imputation qua
 
 
 ### 1. Example script using PLINK
-### 2. Example script using REGENIE
+### 2. Example script using REGENIE [module load Regenie/v2.0.1 (users should have regenie installed. I am using v2.0.1)]
+
+Regenie runs in two steps. Before starting the first step, one needs to generate a plink file containing a subset of independent SNPs (e.g., 100K as recommended by Regenie). This file will be used to run H0 and account for relatedness between subjects.
+In the first step, 100K.bed 100K.bim 100K.fam will be the files we will use (file containing all inds and 100k SNPs).
+
+# Step 1: Perform H0. Two runs will be performed, one for females and one for males. We need to create two files that contain FID and IID of females and males (i.e., id_females and id_males, with header (FID IID)).
+
+## H0 in Females
+regenie --step 1 --bed 100K   --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age --phenoFile pheno.txt --phenoCol CAD --keep id_females --bsize 10000 --bt --lowmem --lowmem-prefix tmp_rg1 --out H0_females
+
+## H0 in Males
+regenie --step 1 --bed 100K   --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age --phenoFile pheno.txt --phenoCol CAD --keep id_males --bsize 10000 --bt --lowmem --lowmem-prefix tmp_rg1 --out H0_males
+
+# Step 2: Perform H1. This step runs the association test for SNVs. In the following case, chromosomes were aggregated in one plink file. If users have data split by chromosome, a loop needs to be used to run all chromosomes.
+# H1 in Females
+regenie --step 2 --bed AllChr  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age --phenoFile pheno.txt --phenoCol CAD --keep id_females --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_females_pred.list --out results_females
+
+# H1 in Males
+regenie --step 2 --bed AllChr  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age --phenoFile pheno.txt --phenoCol CAD --keep id_males --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_males_pred.list --out results_males
+
+
+## If your genomic data is split by chromosome, you can create use a loop style function to run all chrs with a single script as follow:
+
+`for i in `seq 1 22``
+`do`
+`# H1 in Females`
+`regenie --step 2 --bed Chr"$i"  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age --phenoFile pheno.txt --phenoCol CAD --keep id_females --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_females_pred.list --out results_females_chr"$i"`
+`# H1 in Males`
+`regenie --step 2 --bed Chr"$i"  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age --phenoFile pheno.txt --phenoCol CAD --keep id_males --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_males_pred.list --out results_males_chr"$i"
+done`
+
+#### File formats #### 
+#pheno.txt
+# FID IID CAD PC1 PC2 PC3 PC4 PC5 Sex Age
+
+#id_females
+# FID IID
+
+#id_males
+# FID IID
+
+# The file is space-delimited and can have many more covariates. Users have the flexibility to use the set of covariates in the regenie command-line above.
+
 ### 3. Example script using SAIGE
 
 ### list of variables to provide in the summary statistics for each sex specific GWAS
