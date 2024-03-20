@@ -19,18 +19,32 @@ In the first step, 100K.bed 100K.bim 100K.fam will be the files we will use (fil
 # Step 1: Perform H0. Two runs will be performed, one for females and one for males. We need to create two files that contain FID and IID of females and males (i.e., id_females and id_males, with header (FID IID)).
 ```
 ## H0 in Females
-regenie --step 1 --bed 100K   --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age --phenoFile pheno.txt --phenoCol CAD --keep id_females --bsize 10000 --bt --lowmem --lowmem-prefix tmp_rg1 --out H0_females
+regenie \
+--step 1 --bed 100K   \
+--covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
+--phenoFile pheno.txt --phenoCol CAD --keep id_females --bsize 10000 --bt --lowmem --lowmem-prefix tmp_rg1 \
+--out H0_females
 
 ## H0 in Males
-regenie --step 1 --bed 100K   --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age --phenoFile pheno.txt --phenoCol CAD --keep id_males --bsize 10000 --bt --lowmem --lowmem-prefix tmp_rg1 --out H0_males
+regenie \
+--step 1 --bed 100K   --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
+--phenoFile pheno.txt --phenoCol CAD --keep id_males --bsize 10000 --bt --lowmem --lowmem-prefix tmp_rg1 \
+--out H0_males
 ```
 
 # Step 2: Perform H1. This step runs the association test for SNVs. In the following case, chromosomes were aggregated in one plink file. If users have data split by chromosome, a loop needs to be used to run all chromosomes.
 ```
 # H1 in Females
-regenie --step 2 --bed AllChr  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age --phenoFile pheno.txt --phenoCol CAD --keep id_females --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_females_pred.list --out results_females
+regenie \
+--step 2 --bed AllChr  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
+--phenoFile pheno.txt --phenoCol CAD --keep id_females --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_females_pred.list \
+--out results_females
+
 # H1 in Males
-regenie --step 2 --bed AllChr  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age --phenoFile pheno.txt --phenoCol CAD --keep id_males --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_males_pred.list --out results_males
+regenie \
+--step 2 --bed AllChr  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age\
+ --phenoFile pheno.txt --phenoCol CAD --keep id_males --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_males_pred.list \
+--out results_males
 ```
 
 ## If your genomic data is split by chromosome, you can create use a loop style function to run all chrs with a single script as follow:
@@ -38,9 +52,16 @@ regenie --step 2 --bed AllChr  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,
 for i in `seq 1 22`
 do
 # H1 in Females
-regenie --step 2 --bed Chr"$i"  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age --phenoFile pheno.txt --phenoCol CAD --keep id_females --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_females_pred.list --out results_females_chr"$i"
+regenie \
+--step 2 --bed Chr"$i"  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
+--phenoFile pheno.txt --phenoCol CAD --keep id_females --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_females_pred.list \
+--out results_females_chr"$i"
+
 # H1 in Males
-regenie --step 2 --bed Chr"$i"  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age --phenoFile pheno.txt --phenoCol CAD --keep id_males --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_males_pred.list --out results_males_chr"$i"
+regenie \
+--step 2 --bed Chr"$i"  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
+--phenoFile pheno.txt --phenoCol CAD --keep id_males --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_males_pred.list \
+--out results_males_chr"$i"
 done
 ```
 #### File formats #### 
