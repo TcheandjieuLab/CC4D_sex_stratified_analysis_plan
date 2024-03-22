@@ -37,13 +37,19 @@ regenie \
 # H1 in Females
 regenie \
 --step 2 --bed AllChr  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
---phenoFile pheno.txt --phenoCol CAD --keep id_females --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_females_pred.list \
+--phenoFile pheno.txt --phenoCol CAD --keep id_females \
+--bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_females_pred.list \
+--threads $i  #multithreads with a number appropriate to your cluster \
+--minMAC 10 --minINFO 0.3 --af-cc \
 --out results_females
 
 # H1 in Males
 regenie \
 --step 2 --bed AllChr  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age\
- --phenoFile pheno.txt --phenoCol CAD --keep id_males --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_males_pred.list \
+--phenoFile pheno.txt --phenoCol CAD --keep id_males \
+--bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_males_pred.list \
+--threads $i  #multithreads with a number appropriate to your cluster \
+--minMAC 10 --minINFO 0.3 --af-cc \
 --out results_males
 ```
 
@@ -54,13 +60,19 @@ do
 # H1 in Females
 regenie \
 --step 2 --bed Chr"$i"  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
---phenoFile pheno.txt --phenoCol CAD --keep id_females --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_females_pred.list \
+--phenoFile pheno.txt --phenoCol CAD --keep id_females \
+--bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_females_pred.list \
+--threads $i  #multithreads with a number appropriate to your cluster \
+--minMAC 10 --minINFO 0.3 --af-cc \
 --out results_females_chr"$i"
 
 # H1 in Males
 regenie \
 --step 2 --bed Chr"$i"  --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
---phenoFile pheno.txt --phenoCol CAD --keep id_males --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_males_pred.list \
+--phenoFile pheno.txt --phenoCol CAD --keep id_males \
+--bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_males_pred.list \
+--threads $i  #multithreads with a number appropriate to your cluster \
+--minMAC 10 --minINFO 0.3 --af-cc \
 --out results_males_chr"$i"
 done
 ```
