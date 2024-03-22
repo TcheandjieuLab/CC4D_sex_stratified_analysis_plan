@@ -131,7 +131,7 @@ the sex-interaction test will be dome using GEM (https://github.com/large-scale-
    
     **b. Female coded as 2**
 
-### Example of script for sex interaction test using GEM
+**Example of script for sex interaction test using GEM**
 
 ###list of variables to provide in the summary statistic 
 
