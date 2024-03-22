@@ -123,7 +123,11 @@ id_males: FID IID
 
 ## Section 2: sex interaction model (will be following the analytical pipeline from GLGC)
 
-the sex-interaction test will be dome using GEM (https://github.com/large-scale-gxe-methods/GEM)
+the sex-interaction test will be dome using GEM (https://github.com/large-scale-gxe-methods/GEM). 
+1. This analysis should be conducted usinf ### Unrealted individual only ##.
+2. For consistency in effect estimate report, We will have Male and Female with the same codage across all studies:
+    ### a. Male coded as 1
+    ### b. Female coded as 2 
 
 ### Example of script for sex interaction test using GEM
 
