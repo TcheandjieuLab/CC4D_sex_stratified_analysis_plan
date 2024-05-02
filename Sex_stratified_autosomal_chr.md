@@ -13,6 +13,7 @@ c. The should include the following filtering criteria: SNPs with imputation qua
 ### 1. Example script using PLINK
 
 This is a single example command line to run GWAS with PLINK when chromosome are strore in seprate files
+
 1.a. Analysis in males
 
 ```
