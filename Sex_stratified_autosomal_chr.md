@@ -1,4 +1,4 @@
-#  Analysis Plan sex stratify Autosomal chr
+#  Analysis plan for sex stratify autosomal chromosomes
 
 the purpose of this pipeline is to provide detail on sex stratif analysis for CAD . 
 Please test additive models using logistic regression, accounting for genotype imputation uncertainty (i.e. SNP probability or dosage).
