@@ -4,13 +4,13 @@
 
 In this section, we will perform analysis that are helpful for quality control of the X-chromosome using PLINK(https://www.cog-genomics.org/plink/2.0/). The set of analysis needed are as follow: 
 1. **Rate of heterozygote in males only** this is to investigate whether some SNPs have inds with heterozygote alleles (this is an indicator of potential genotyping or imputation errors)
-   ** important note: If sex is provide as part of the genotype data, plink will auto assign male and female. This will then cause the sofware to systematically estimate the rate of heterozygozity for male to be zero and prevent us from catching genotyping errors. To avoid this, we sex should be provide as a covariate file separately. ** 
+   **important note: If sex is provide as part of the genotype data, plink will auto assign male and female. This will then cause the sofware to systematically estimate the rate of heterozygozity for male to be zero and prevent us from catching genotyping errors. To avoid this, we sex should be provide as a covariate file separately.** 
 
 ```
    Plink2a \
    --bfile $PATH_TO_PLINK_FILES \
    --chr X \
-   --covar $PATH_TO_FILE_WITH_SEX \ ## *sex should be provide as a separate file to avoid auto-conversion auto assigment of sex in male and female*
+   --covar $PATH_TO_FILE_WITH_SEX \ ## sex should be provide as a separate covariatefile to avoid auto-conversion auto assigment of sex in male and female
    --geno-counts --remove-if "$SEX_Variable==2" --threads $NUMBER APPROPRIATE THREADS \ ## keep males only 
    --out $PATH_OUTPUT
 ```
@@ -21,7 +21,7 @@ In this section, we will perform analysis that are helpful for quality control o
 ```
 Plink2a \
 --bfile  $PATH_TO_PLINK_FILES \
---pheno $PATH_TO_FILE_WITH_SEX \ ## *sex should be provide as a separate file to avoid auto-conversion auto assigment of sex in male and female*
+--pheno $PATH_TO_FILE_WITH_SEX \ ## sex should be provide as a separate covariate file to avoid auto-conversion auto assigment of sex in male and female
 --pheno-name $SEX_Variable  --mfilter 12 --assoc fisher \
 --out $PATH_OUTPUT
 ```
