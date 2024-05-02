@@ -28,7 +28,7 @@ for chr in {1..22}; do
   --mach-r2-filter 0.4 2.0  --maf 0.005 --hwe 1e-10 \
   --memory 42000 --covar-variance-standardize \
   --pheno-name CAD \
-  --out output.files.txt
+  --out output.fileschr${chr}.txt
   ```
 
 ### 2. Example script using REGENIE [module load Regenie/v2.0.1 (users should have regenie installed. I am using v2.0.1)]
