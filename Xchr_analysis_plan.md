@@ -4,7 +4,7 @@
 
 In this section, we will perform analysis that are helpful for quality control of the X-chromosome using PLINK(https://www.cog-genomics.org/plink/2.0/). The set of analysis needed are as follow: 
 1. **Rate of heterozygote in males only** this is to investigate whether some SNPs have inds with heterozygote alleles (this is an indicator of potential genotyping or imputation errors)
-   **important note: If sex is provide as part of the genotype data, plink will auto assign male and female. This will then cause the sofware to systematically estimate the rate of heterozygozity for male to be zero and prevent us from catching genotyping errors. To avoid this, we sex should be provide as a covariate file separately.** 
+   **Important note: If sex is provide as part of the genotype data, plink will auto assign male and female. This will then cause the sofware to systematically estimate the rate of heterozygozity for male to be zero and prevent us from catching genotyping errors. To avoid this, we sex should be provide as a covariate file separately.** 
 
 ```
    Plink2a \
@@ -16,7 +16,7 @@ In this section, we will perform analysis that are helpful for quality control o
 ```
    
 3. **Test for difference in MAF between males and females controls only**
-    ** important note: If sex is provide as part of the genotype data, plink will auto assign male and female. This will then cause the sofware to systematically correct the MAF in male and prevent us from catching genotyping errors. To avoid this, we sex should be provide as a covariate file separately. ** 
+    **Important note: If sex is provide as part of the genotype data, plink will auto assign male and female. This will then cause the sofware to systematically correct the MAF in male and prevent us from catching genotyping errors. To avoid this, we sex should be provide as a covariate file separately.** 
 
 ```
 Plink2a \
