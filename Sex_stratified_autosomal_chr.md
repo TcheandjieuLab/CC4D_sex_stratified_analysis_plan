@@ -12,7 +12,8 @@ c. The should include the following filtering criteria: SNPs with imputation qua
 
 ### 1. Example script using PLINK
 
-this is a single example command line to run GWAS with PLINK when chr are strore in seprate files
+This is a single example command line to run GWAS with PLINK when chromosome are strore in seprate files
+1.a. Analysis in males
 
 ```
 for chr in {1..22}; do
@@ -28,9 +29,26 @@ for chr in {1..22}; do
   --mach-r2-filter 0.4 2.0  --maf 0.005 --hwe 1e-10 \
   --memory 42000 --covar-variance-standardize \
   --pheno-name CAD \
-  --out output.fileschr${chr}.txt
+  --out male.output.fileschr${chr}.txt
   ```
+1.b. Analysis in females
 
+```
+for chr in {1..22}; do
+ plink2 \
+  --pfile Imputed_files.diresctory/filesmale_imp_chr${chr} \
+  --pheno phenotypes_files \
+  --covar covariate_files.txt \
+  --covar-name PC1-PC5 age \
+  --glm hide-covar cols=+a1freq,+machr2  \
+  --mac 10 \
+  --keep-if Sex==2 \ # Analysis for males
+  --threads 20  \
+  --mach-r2-filter 0.4 2.0  --maf 0.005 --hwe 1e-10 \
+  --memory 42000 --covar-variance-standardize \
+  --pheno-name CAD \
+  --out females.output.fileschr${chr}.txt
+  ```
 ### 2. Example script using REGENIE [module load Regenie/v2.0.1 (users should have regenie installed. I am using v2.0.1)]
 
 Regenie runs in two steps. Before starting the first step, one needs to generate a plink file containing a subset of independent SNPs (e.g., 100K as recommended by Regenie). This file will be used to run H0 and account for relatedness between subjects.
