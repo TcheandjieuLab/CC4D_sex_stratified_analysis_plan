@@ -19,8 +19,8 @@ The rate of heterozygosity for males can be computed as: HAP_ALT_CTS / (HAP_REF_
 An alternative way to obtain heterozygosity in males with plink 1.9: use the "--hardy" feature combined with "--keep" to use males only
 ```
 plink --bfile genotype_data_xchr --hardy --keep id_males --out hwe_males   ## id_males is a 2-col file that has FID and IID of the male individuals with a header. 
-sed -i 's/\// /g' hwe_males.hwe                  ## to split the three genotypes separated by "/"
-sed -i 's/GENO/AA AB BB/g' hwe_males.hwe         ## To create three headers (AA, AB, BB) instead of one (GENO)
+sed -i 's/\// /g' hwe_males.hwe                                            ## to split the three genotypes separated by "/"
+sed -i 's/GENO/AA AB BB/g' hwe_males.hwe                                   ## To create three headers (AA, AB, BB) instead of one (GENO)
 ```
 Here, heterozygosity rate can be calculated as AB / (AA + AB + BB)
 
