@@ -72,6 +72,15 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
 1. Model 1: Activation of the X-chromosome. Here each SNPs is code as  0/1/2 in females and 0/1 in male
    
 1.a. model for females (using PLINK)
+```
+## Female only analysis
+plink --bfile genotype_data_xchr --keep id_females --make-bed --out genotype_data_xchr_females   ## Select females
+plink --bfile genotype_data_xchr_females --logistic --pheno pheno.txt pheno-name CAD --covar pheno.txt --covar-name P1,PC2,PC3,PC4,PC5,Age --out results_females   ## Perform logistic regression
+## Male only analysis
+plink --bfile genotype_data_xchr --keep id_males --make-bed --out genotype_data_xchr_males   ## Select males
+plink --bfile genotype_data_xchr_males --logistic --pheno pheno.txt pheno-name CAD --covar pheno.txt --covar-name P1,PC2,PC3,PC4,PC5,Age --out results_males   ## Perform logistic regression
+## Note: using plink, alleles will be coded as 0 and 2 for males.
+```
 
 1.b. Model for males
 
