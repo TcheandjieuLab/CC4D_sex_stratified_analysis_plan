@@ -59,7 +59,7 @@ Plink2a \
 --hardy \
 --out $PATH_OUTPUT 
 ```
-#MS: An alternative way using plink1 1.9:
+#MS: An alternative way using plink 1.9:
 ```
 plink --bfile genotype_data_xchr --hardy --keep id_females_controls --out hwe_females_controls   ## id_females_controls contains female controls only
 ```
@@ -75,11 +75,11 @@ Model for female-only and male-only analysis (using PLINK)
 ```
 ## Female only analysis
 plink --bfile genotype_data_xchr --keep id_females --make-bed --out genotype_data_xchr_females   ## Select females
-plink --bfile genotype_data_xchr_females --logistic --pheno pheno.txt pheno-name CAD --covar pheno.txt --covar-name P1,PC2,PC3,PC4,PC5,Age --out results_females   ## Perform logistic regression
+plink --bfile genotype_data_xchr_females --logistic --pheno pheno.txt pheno-name CAD --covar pheno.txt --covar-name PC1,PC2,PC3,PC4,PC5,Age --out results_females   ## Perform logistic regression
 
 ## Male only analysis
 plink --bfile genotype_data_xchr --keep id_males --make-bed --out genotype_data_xchr_males   ## Select males
-plink --bfile genotype_data_xchr_males --logistic --pheno pheno.txt pheno-name CAD --covar pheno.txt --covar-name P1,PC2,PC3,PC4,PC5,Age --out results_males   ## Perform logistic regression
+plink --bfile genotype_data_xchr_males --logistic --pheno pheno.txt pheno-name CAD --covar pheno.txt --covar-name PC1,PC2,PC3,PC4,PC5,Age --out results_males   ## Perform logistic regression
 ## Note: using plink, alleles will be coded as 0 and 2 for males. The effect sizes and their standard errors could divided by 2, which should be equivalent to the model coding males as 1 and 2.
 ```
 
