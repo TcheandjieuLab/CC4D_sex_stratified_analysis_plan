@@ -63,6 +63,8 @@ Plink2a \
 ```
 plink --bfile genotype_data_xchr --hardy --keep id_females_controls --out hwe_females_controls   ## id_females_controls contains female controls only
 ```
+What is the threshold we should use to filter SNPs? P<10^-8? 
+
 
 
 ## Section 2: In this section we will perfom analyis of CAD for the X chromosome separately for each sex
