@@ -71,7 +71,7 @@ What is the threshold we should use to filter SNPs? P<10^-8?
 The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow the inclusion of related individuals while PLINK do not not. we will consider 2 different model :
 1. Model 1: Activation of the X-chromosome. Here each SNPs is code as  0/1/2 in females and 0/1 in male
    
-1.a. model for females (using PLINK)
+1.a. Model for female-only and male-only analysis (using PLINK)
 ```
 ## Female only analysis
 plink --bfile genotype_data_xchr --keep id_females --make-bed --out genotype_data_xchr_females   ## Select females
@@ -79,12 +79,10 @@ plink --bfile genotype_data_xchr_females --logistic --pheno pheno.txt pheno-name
 ## Male only analysis
 plink --bfile genotype_data_xchr --keep id_males --make-bed --out genotype_data_xchr_males   ## Select males
 plink --bfile genotype_data_xchr_males --logistic --pheno pheno.txt pheno-name CAD --covar pheno.txt --covar-name P1,PC2,PC3,PC4,PC5,Age --out results_males   ## Perform logistic regression
-## Note: using plink, alleles will be coded as 0 and 2 for males.
+## Note: using plink, alleles will be coded as 0 and 2 for males. The effect sizes and their standard errors could divided by 2, which should be equivalent to the model coding males as 1 and 2.
 ```
 
-1.b. Model for males
-
-3. Model 2: Inactivation of the X-Chr. This model will be conducted in males only with alleles for each SNP code as 0/2 (assuming that 1 copy of the effect allele in males have the same effect as 2 copy in females)
+2. Model 2: Inactivation of the X-Chr. This model will be conducted in males only with alleles for each SNP code as 0/2 (assuming that 1 copy of the effect allele in males have the same effect as 2 copy in females)
     
 
 ## Section 3: Alternative script for analysis of the X-chr using REGENIE and SAIGE
