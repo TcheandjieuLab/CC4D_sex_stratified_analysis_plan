@@ -170,9 +170,36 @@ the sex-interaction test will be dome using GEM (https://github.com/large-scale-
    
     **b. Female coded as 2**
 
-**Example of script for sex interaction test using GEM**
+**Example of input/script for sex interaction test using GEM**
 
-###list of variables to provide in the summary statistic 
+```
+IID      FID      CAD  age  array  sex   PC1     PC2      PC3      PC4      PC5     ...   PC10
+1000001  1000001  0    44   0      0    -0.2283  0.0986  -0.1185  -0.0881  -1.0568  ...   1.2153
+1000002  1000002  0    69   0      1    -0.2655  0.1417  -0.1286   0.5837  -0.3744  ...  -0.4781
+1000003  1000003  1    66   0      0    -0.2033  0.2145  -0.1035  -0.3426  -0.7164  ...  -0.2142
+1000004  1000004  1    54   0      1    -0.1658  0.1421   0.0258  -0.1435   0.2450  ...   0.3132
+```
+
+```
+./GEM_1.5.2_Intel \
+    --bgen ukb_imp_chr${chr}_v3.bgen \
+    --sample ${sample} \
+    --pheno-file UKBB_CAD.${pop}.pheno.txt \
+    --delim '\t' \
+    --pheno-name CAD \
+    --sampleid-name IID \
+    --exposure-name sex \
+    --categorical-names sex \
+    --covar-names age array PC1 PC2 PC3 PC4 PC5 PC6 PC7 PC8 PC9 PC10 \
+    --robust 1 \
+    --center 0 \
+    --scale 0 \
+    --threads 8 \
+    --output-style full \
+    --out UKBB_CAD.${pop}.${chr}.gem
+```
+
+### list of variables to provide in the summary statistic 
 
 
 ***Note: For studies that have already conducted analyses, please discuss the models used (for example, some studies may have already adjusted for age and this is not considered a material deviation from the analysis plan). Use study appropriate software to account for (or exclude as appropriate) relatedness.***
