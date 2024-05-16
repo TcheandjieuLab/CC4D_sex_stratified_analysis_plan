@@ -84,8 +84,9 @@ plink --bfile genotype_data_xchr_males --logistic --pheno pheno.txt pheno-name C
 ```
 
 2. Model 2: Inactivation of the X-Chr. This model will be conducted in males only with alleles for each SNP code as 0/2 (assuming that 1 copy of the effect allele in males have the same effect as 2 copy in females)
+```
 Same as previous model but no need to transform the effect sizes and SEs.
-
+```
 
 ## Section 3: Alternative script for analysis of the X-chr using REGENIE and SAIGE
 This section provides examples scripts for X-chr analysis using both REGENIE and SAIGE
