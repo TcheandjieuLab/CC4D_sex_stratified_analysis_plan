@@ -26,7 +26,7 @@ Here, heterozygosity rate can be calculated as AB / (AA + AB + BB)
 
    
 3. **Test for difference in MAF between males and females controls only**
-    **Important note: If sex is provide as part of the genotype data, plink will auto assign male and female. This will then cause the sofware to systematically correct the MAF in male and prevent us from catching genotyping errors. To avoid this, we sex should be provide as a covariate file separately.** 
+**Important note: If sex is provide as part of the genotype data, plink will auto assign male and female. This will then cause the sofware to systematically correct the MAF in male and prevent us from catching genotyping errors. To avoid this, we sex should be provide as a covariate file separately.** 
 
 ```
 Plink2a \
