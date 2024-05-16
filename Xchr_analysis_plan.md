@@ -46,7 +46,7 @@ Plink2a \
 --out $PATH_OUTPUT
 ```
 
-5. **HWE test in females only**
+5. **HWE test in female controls only**
    
 ```
 Plink2a \
@@ -59,6 +59,11 @@ Plink2a \
 --hardy \
 --out $PATH_OUTPUT 
 ```
+#MS: An alternative way using plink1 1.9:
+```
+plink --bfile genotype_data_xchr --hardy --keep id_females_controls --out hwe_females_controls   ## id_females_controls contains female controls only
+```
+
 
 ## Section 2: In this section we will perfom analyis of CAD for the X chromosome separately for each sex
 The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow the inclusion of related individuals while PLINK do not not. we will consider 2 different model :
