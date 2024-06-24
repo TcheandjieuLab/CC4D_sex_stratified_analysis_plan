@@ -58,6 +58,7 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
 1. Model 1: Activation of the X-chromosome. Here each SNPs is code as  0/1/2 in females and 0/1 in male
    
    1.a Model for female-only (using PLINK)
+
    1.b male-only analysis 
 
 3. Model 2: Inactivation of the X-Chr. This model will be conducted in males only with alleles for each SNP code as 0/2 (assuming that 1 copy of the effect allele in males have the same effect as 2 copy in females)
@@ -66,12 +67,15 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
 This section provides examples scripts for X-chr analysis using both REGENIE and SAIGE
 
 1. X-CHR analysis using REGENIE
+
 2. X-chr analysis using SAIGE (if cohort are using SAIGE already)
 
 
 ## Section 4: description of the summary results to provide for the X-chromosome analysis
 This section describe the summary results of the analysis performed for the X-chromosome
+
 1. table content summary results for the QC
+
 2. table content summary results association testing
    
 
