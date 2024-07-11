@@ -27,7 +27,7 @@ for chr in {1..22}; do
   --mac 10 \
   --keep-if Sex==1 \ # Analysis for males
   --threads 20  \
-  --mach-r2-filter 0.4 2.0  --maf 0.005 --hwe 1e-10 \
+  --mach-r2-filter 0.3  --mac 10 --hwe 1e-10 \
   --memory 42000 --covar-variance-standardize \
   --pheno-name CAD \
   --out male.output.fileschr${chr}.txt
@@ -45,7 +45,7 @@ for chr in {1..22}; do
   --mac 10 \
   --keep-if Sex==2 \ # Analysis for males
   --threads 20  \
-  --mach-r2-filter 0.4 2.0  --maf 0.005 --hwe 1e-10 \
+  --mach-r2-filter 0.3  --mac 10 --hwe 1e-10 \
   --memory 42000 --covar-variance-standardize \
   --pheno-name CAD \
   --out females.output.fileschr${chr}.txt
