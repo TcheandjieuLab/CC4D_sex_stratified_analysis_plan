@@ -77,6 +77,7 @@ Model 1: Activation of the X-chromosome. Here each SNPs is code as  0/1/2 in fem
     --remove $PATH_TO_SUBJECT_to_exclude  \  ## this can be a list of related ind that should be excluded from the model
     --out $PATH_OUTPUT_FEMALE ## path to the output summary statistics 
     ```
+    
    1.b male-only analysis
    
   ```
@@ -95,6 +96,7 @@ Model 1: Activation of the X-chromosome. Here each SNPs is code as  0/1/2 in fem
     --remove $PATH_TO_SUBJECT_to_exclude  \  ## this can be a list of related ind that should be excluded from the model
     --out $PATH_OUTPUT_MALES ## path to the output summary statistics 
     ```
+
 Model 2: Inactivation of the X-Chr. This model will be conducted in females only with alleles for each SNP code as 0/2 (assuming that 1 copy of the effect allele in males have the same effect as 2 copy in females)
 
   ```
