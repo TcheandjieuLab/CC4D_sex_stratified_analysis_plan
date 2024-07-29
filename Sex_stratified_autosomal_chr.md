@@ -8,8 +8,6 @@ Primary model here will be:
 a. Males: CAD(all CAD cases vs. all non-CAD controls) = $SNP + Study covariates 
 b. Females: CAD (all CAD cases vs. all non-CAD controls) = $SNP + Study covariates 
 c. The should include the following filtering criteria: SNPs with imputation quality (INFO) > 0.3 and Mininum Allele Count (MAC)=10
-![image](https://github.com/TcheandjieuLab/CC4D_sex_stratified_analysis_plan/assets/32551968/c795e1f7-6cae-4fe5-acbe-466a5c6c2cb3)
-
 
 ### 1. Example script using PLINK
 
