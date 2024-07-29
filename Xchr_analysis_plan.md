@@ -61,7 +61,7 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
    
    1.a Model for female-only 
 
-       ```
+    ```
     Plink2 \
     --pfile $PATH_TO_PLINK_FILES \
     --covar $PATH_TO_FILE_WITH_COVARIATE \
