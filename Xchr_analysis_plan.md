@@ -122,10 +122,6 @@ Since REGENIE do not currently support X chromosome activation model, it can onl
 
 ***note from REGENIE sofware: To include X chromosome genotypes in step 1 and/or step 2, males should be coded as diploid so that their genotypes are 0/2 (this is done automatically for BED and PGEN file formats with haploid genotypes). Chromosome values of 23 (for human analyses), X, Y, XY, PAR1 and PAR2 are all acceptable and will be collapsed into a single chromosome*** 
    
-
-3. X-chr analysis using SAIGE (if cohort are using SAIGE already)
-
-
 ## Section 3: description of the summary results to provide for the X-chromosome analysis
 This section describe the summary results of the analysis performed for the X-chromosome
 
