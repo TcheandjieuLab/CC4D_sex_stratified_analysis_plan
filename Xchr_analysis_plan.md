@@ -52,7 +52,6 @@ Plink2 \
 ```
 
 
-
 ## Section 2: In this section we will perfom analyis of CAD for the X chromosome separately for each sex
 The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow the inclusion of related individuals while PLINK do not not. we will consider 2 different model :
 
@@ -97,7 +96,7 @@ Model 1: Activation of the X-chromosome. Here each SNPs is code as  0/1/2 in fem
     --out $PATH_OUTPUT_MALES ## path to the output summary statistics 
     ```
 
-Model 2: Inactivation of the X-Chr. This model will be conducted in females only with alleles for each SNP code as 0/2 (assuming that 1 copy of the effect allele in males have the same effect as 2 copy in females)
+  Model 2: Inactivation of the X-Chr. This model will be conducted in females only with alleles for each SNP code as 0/2 (assuming that 1 copy of the effect allele in males     have the same effect as 2 copy in females)
 
   ```
     Plink2 \
