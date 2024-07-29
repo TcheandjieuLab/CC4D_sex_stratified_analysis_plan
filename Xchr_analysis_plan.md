@@ -56,7 +56,7 @@ Plink2 \
 ## Section 2: In this section we will perfom analyis of CAD for the X chromosome separately for each sex
 The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow the inclusion of related individuals while PLINK do not not. we will consider 2 different model :
 
-## Section 2.a: Example script for X-chromosome analysis using PLINK
+### Example script for X-chromosome analysis using PLINK
 Model 1: Activation of the X-chromosome. Here each SNPs is code as  0/1/2 in females and 0/1 in male
    
    1.a Model for female-only 
@@ -114,12 +114,16 @@ Model 2: Inactivation of the X-Chr. This model will be conducted in females only
     --out $PATH_OUTPUT_MALES ## path to the output summary statistics 
     ```
 
-## Section 2.b: Alternative script for analysis of the X-chr using REGENIE and SAIGE
+## Alternative script for analysis of the X-chr using REGENIE and SAIGE
 This section provides examples scripts for X-chr analysis using both REGENIE and SAIGE
 
-1. X-CHR analysis using REGENIE
+1. X-CHR analysis using REGENIE: 
+Since REGENIE do not currently support X chromosome activation model, it can only be used to run model 2 for both Male and female.  
 
-2. X-chr analysis using SAIGE (if cohort are using SAIGE already)
+*** note from REGENIE sofware: To include X chromosome genotypes in step 1 and/or step 2, males should be coded as diploid so that their genotypes are 0/2 (this is done automatically for BED and PGEN file formats with haploid genotypes). Chromosome values of 23 (for human analyses), X, Y, XY, PAR1 and PAR2 are all acceptable and will be collapsed into a single chromosome *** 
+   
+
+3. X-chr analysis using SAIGE (if cohort are using SAIGE already)
 
 
 ## Section 3: description of the summary results to provide for the X-chromosome analysis
