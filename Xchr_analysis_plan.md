@@ -80,7 +80,7 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
     
    1.b male-only analysis
    
-  ```
+    ```
     Plink2 \
     --pfile $PATH_TO_PLINK_FILES \
     --covar $PATH_TO_FILE_WITH_COVARIATE \
@@ -95,10 +95,11 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
     --glm hide-covar firth-fallback  cols=+a1countcc,+a1freqcc,+machr2,+totallelecc,+nobs \ ## firth-fallback  glm fall on firth regression if low case number 
     --remove $PATH_TO_SUBJECT_to_exclude  \  ## this can be a list of related ind that should be excluded from the model
     --out $PATH_OUTPUT_MALES ## path to the output summary statistics 
-    ````
-### Model 2: Inactivation of the X-Chr. This model will be conducted in females only with alleles for each SNP code as 0/2 (assuming that 1 copy of the effect allele in males     have the same effect as 2 copy in females)
+    ```
 
-  ```
+### Model 2: Inactivation of the X-Chr. This model will be conducted in females only with alleles for each SNP code as 0/2 (assuming that 1 copy of the effect allele in males     have the same effect as 2 copy in females)
+  
+    ```
     Plink2 \
     --pfile $PATH_TO_PLINK_FILES \
     --covar $PATH_TO_FILE_WITH_COVARIATE \
