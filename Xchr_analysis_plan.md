@@ -7,7 +7,7 @@ In this section, we will perform analysis that are helpful for quality control o
    **Important note: If sex is provided as part of the genotype data (e.g., in the .fam file), plink will auto assign male and female. This will then cause the sofware to systematically estimate the rate of heterozygozity for male to be zero and prevent us from catching genotyping errors. To avoid this, the sex should be provided as a covariate file separately, and should be removed put as missing in the .fam file** 
 
 ```
-   Plink2a \
+   Plink2 \
    --bfile $PATH_TO_PLINK_FILES \
    --chr X \
    --covar $PATH_TO_FILE_WITH_SEX \ ## sex should be provide as a separate covariatefile to avoid auto-conversion auto assigment of sex in male and female
@@ -20,7 +20,7 @@ In this section, we will perform analysis that are helpful for quality control o
 **Important note: If sex is provide as part of the genotype data, plink will auto assign male and female. This will then cause the sofware to systematically correct the MAF in male and prevent us from catching genotyping errors. To avoid this, we sex should be provide as a covariate file separately.** 
 
 ```
-Plink2a \
+Plink2 \
 --bfile  $PATH_TO_PLINK_FILES \
 --pheno $PATH_TO_FILE_WITH_SEX \ ## sex should be provide as a separate covariate file to avoid auto-conversion auto assigment of sex in male and female
 --pheno-name $SEX_Variable  --mfilter 12 --assoc fisher \
@@ -30,7 +30,7 @@ Plink2a \
 4. **Test for differential missingness between males and females**
 
 ```
-Plink2a \
+Plink2 \
 --bfile  $PATH_TO_PLINK_FILES \
 --pheno $PATH_TO_FILE_WITH_SEX \ ## sex should be provide as a separate file to avoid auto-conversion auto assigment of sex in male ans female
 --pheno-name $SEX_Variable  --test-missing \
@@ -40,7 +40,7 @@ Plink2a \
 5. **HWE test in female controls only**
    
 ```
-Plink2a \
+Plink2 \
 --bfile  $PATH_TO_PLINK_FILES \
 --pheno $PATH_TO_FILE_WITH_PHENOTYPES \ ##
 --pheno-name $CAD_Variable \
@@ -55,15 +55,66 @@ Plink2a \
 
 ## Section 2: In this section we will perfom analyis of CAD for the X chromosome separately for each sex
 The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow the inclusion of related individuals while PLINK do not not. we will consider 2 different model :
-1. Model 1: Activation of the X-chromosome. Here each SNPs is code as  0/1/2 in females and 0/1 in male
+
+## Section 2.a: Example script for X-chromosome analysis using PLINK
+Model 1: Activation of the X-chromosome. Here each SNPs is code as  0/1/2 in females and 0/1 in male
    
-   1.a Model for female-only (using PLINK)
+   1.a Model for female-only 
 
-   1.b male-only analysis 
+       ```
+    Plink2 \
+    --pfile $PATH_TO_PLINK_FILES \
+    --covar $PATH_TO_FILE_WITH_COVARIATE \
+    --covar-name $PATH_SEX_OR_COVAR_INCLUDINGSEX \
+    --mac 10 \
+    --mach-r2-filter 0.3 \
+    --keep-females \
+    --xchr-model 1 \ ## model 1 represent the xchr activation
+    --pheno $PATH_TO_FILE_WITH_PHENOTYPES \
+    --pheno-name $CAD_Variable \
+    --threads 6 \
+    --glm hide-covar firth-fallback  cols=+a1countcc,+a1freqcc,+machr2,+totallelecc,+nobs \ ## firth-fallback  glm fall on firth regression if low case number 
+    --remove $PATH_TO_SUBJECT_to_exclude  \  ## this can be a list of related ind that should be excluded from the model
+    --out $PATH_OUTPUT_FEMALE ## path to the output summary statistics 
+    ```
+   1.b male-only analysis
+   
+  ```
+    Plink2 \
+    --pfile $PATH_TO_PLINK_FILES \
+    --covar $PATH_TO_FILE_WITH_COVARIATE \
+    --covar-name $PATH_SEX_OR_COVAR_INCLUDINGSEX \
+    --mac 10 \
+    --mach-r2-filter 0.3 \
+    --keep-males \
+    --xchr-model 1 \ ## model 1 represent the xchr activation
+    --pheno $PATH_TO_FILE_WITH_PHENOTYPES \
+    --pheno-name $CAD_Variable \
+    --threads $number_of_thread \ ## the number of thread here should be adapted to the computing system used (6 is often well tolerated)
+    --glm hide-covar firth-fallback  cols=+a1countcc,+a1freqcc,+machr2,+totallelecc,+nobs \ ## firth-fallback  glm fall on firth regression if low case number 
+    --remove $PATH_TO_SUBJECT_to_exclude  \  ## this can be a list of related ind that should be excluded from the model
+    --out $PATH_OUTPUT_MALES ## path to the output summary statistics 
+    ```
+Model 2: Inactivation of the X-Chr. This model will be conducted in females only with alleles for each SNP code as 0/2 (assuming that 1 copy of the effect allele in males have the same effect as 2 copy in females)
 
-3. Model 2: Inactivation of the X-Chr. This model will be conducted in males only with alleles for each SNP code as 0/2 (assuming that 1 copy of the effect allele in males have the same effect as 2 copy in females)
+  ```
+    Plink2 \
+    --pfile $PATH_TO_PLINK_FILES \
+    --covar $PATH_TO_FILE_WITH_COVARIATE \
+    --covar-name $PATH_SEX_OR_COVAR_INCLUDINGSEX \
+    --mac 10 \
+    --mach-r2-filter 0.3 \
+    --keep-females \
+    --pheno $PATH_TO_FILE_WITH_PHENOTYPES \
+    --pheno-name $CAD_Variable \
+    --threads $number_of_thread \ ## the number of thread here should be adapted to the computing system used (6 is often well tolerated)
+    --xchr-model 2 \ ## model 2 represent the xchr inactivation
+    --glm hide-covar firth-fallback  cols=+a1countcc,+a1freqcc,+machr2,+totallelecc,+nobs \ ## firth-fallback  glm fall on firth regression if low case number 
+    --remove $PATH_TO_SUBJECT_to_exclude  \  ## this can be a list of related ind that should be excluded from the model
+    --out $PATH_OUTPUT_MALES ## path to the output summary statistics 
+    ```
 
-## Section 3: Alternative script for analysis of the X-chr using REGENIE and SAIGE
+## Section 2.b: Alternative script for analysis of the X-chr using REGENIE and SAIGE
 This section provides examples scripts for X-chr analysis using both REGENIE and SAIGE
 
 1. X-CHR analysis using REGENIE
@@ -71,7 +122,7 @@ This section provides examples scripts for X-chr analysis using both REGENIE and
 2. X-chr analysis using SAIGE (if cohort are using SAIGE already)
 
 
-## Section 4: description of the summary results to provide for the X-chromosome analysis
+## Section 3: description of the summary results to provide for the X-chromosome analysis
 This section describe the summary results of the analysis performed for the X-chromosome
 
 1. table content summary results for the QC
