@@ -42,7 +42,7 @@ Plink2 \
 ```
 Plink2 \
 --bfile  $PATH_TO_PLINK_FILES \
---pheno $PATH_TO_FILE_WITH_PHENOTYPES \ ##
+--pheno $PATH_TO_FILE_WITH_PHENOTYPES \ ## path to the phenotypes files
 --pheno-name $CAD_Variable \
 --keep-if "$CAD_Variable==1" | ## keep control only
 --covar $PATH_SEX_OR_COVAR_INCLUDINGSEX
