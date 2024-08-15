@@ -116,7 +116,7 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
     --out $PATH_OUTPUT_MALES ## path to the output summary statistics 
   ```
 
-***Note: Model 2 is the default choice for X-chromosome analysis using PLINK2(https://www.cog-genomics.org/plink/2.0/assoc#glm). However, in a sex-stratified analysis focusing on females, Models 1 and 2 will yield identical results. The distinction in output results is relevant only for males, who are coded as 0/1 in Model 1 and 0/2 in Model 2. 
+***Note: Model 2 is the default choice for X-chromosome analysis using PLINK2(https://www.cog-genomics.org/plink/2.0/assoc#glm). However, in a sex-stratified analysis focusing on females, Models 1 and 2 will yield identical results. The distinction in output results is relevant only for males, who are coded as 0/1 in Model 1 and 0/2 in Model 2.*** 
 
 ## Alternative script for analysis of the X-chr using REGENIE and SAIGE
 This section provides examples scripts for X-chr analysis using both REGENIE and SAIGE
