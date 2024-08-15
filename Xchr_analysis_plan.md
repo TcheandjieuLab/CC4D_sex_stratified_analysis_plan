@@ -97,7 +97,7 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
     --out $PATH_OUTPUT_MALES ## path to the output summary statistics 
    ```
 
-### Model 2: Inactivation of the X-Chr. This model will be conducted in females only with alleles for each SNP code as 0/2 (assuming that 1 copy of the effect allele in males     have the same effect as 2 copy in females)
+### Model 2: Inactivation of the X-Chr. This model will be conducted in males only with alleles for each SNP code as 0/2 (assuming that 2 copy of the effect allele in males)
   
   ```
     Plink2 \
