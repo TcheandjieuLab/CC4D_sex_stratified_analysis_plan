@@ -69,7 +69,7 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
     --mac 10 \
     --mach-r2-filter 0.3 \
     --keep-females \
-    --xchr-model 1 \ ## model 1 represent the xchr activation
+    --xchr-model 1 \ ## For model 1 in PLINK2, Male dosages are on a 0..1 scale on chrX, while females are 0..2
     --pheno $PATH_TO_FILE_WITH_PHENOTYPES \
     --pheno-name $CAD_Variable \
     --threads 6 \
@@ -88,7 +88,7 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
     --mac 10 \
     --mach-r2-filter 0.3 \
     --keep-males \
-    --xchr-model 1 \ ## model 1 represent the xchr activation
+    --xchr-model 1 \ ## For model 1 in PLINK2, Male dosages are on a 0..1 scale on chrX, while females are 0.1.2 scale
     --pheno $PATH_TO_FILE_WITH_PHENOTYPES \
     --pheno-name $CAD_Variable \
     --threads $number_of_thread \ ## the number of thread here should be adapted to the computing system used (6 is often well tolerated)
@@ -110,11 +110,13 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
     --pheno $PATH_TO_FILE_WITH_PHENOTYPES \
     --pheno-name $CAD_Variable \
     --threads $number_of_thread \ ## the number of thread here should be adapted to the computing system used (6 is often well tolerated)
-    --xchr-model 2 \ ## model 2 represent the xchr inactivation
+    --xchr-model 2 \ ## for model 2 in PLink Males and females are both on a 0..2 scale on chrX 
     --glm hide-covar firth-fallback  cols=+a1countcc,+a1freqcc,+machr2,+totallelecc,+nobs \ ## firth-fallback  glm fall on firth regression if low case number 
     --remove $PATH_TO_SUBJECT_to_exclude  \  ## this can be a list of related ind that should be excluded from the model
     --out $PATH_OUTPUT_MALES ## path to the output summary statistics 
   ```
+
+***Note: Model 2 is the default choice for X-chromosome analysis using PLINK2(https://www.cog-genomics.org/plink/2.0/assoc#glm). However, in a sex-stratified analysis focusing on females, Models 1 and 2 will yield identical results. The distinction in output results is relevant only for males, who are coded as 0/1 in Model 1 and 0/2 in Model 2. 
 
 ## Alternative script for analysis of the X-chr using REGENIE and SAIGE
 This section provides examples scripts for X-chr analysis using both REGENIE and SAIGE
