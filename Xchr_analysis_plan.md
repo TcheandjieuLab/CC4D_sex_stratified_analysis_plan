@@ -172,9 +172,9 @@ regenie \
 ## Section 3: description of the summary results to provide for the X-chromosome analysis
 This section describe the summary results of the analysis performed for the X-chromosome
 
-1. table content summary results for the QC
+### 1. table content summary results for the QC
 
-2. table content summary results association testing for each sex: Below is the list of output column to have in the summary statistics for each sex. 
+### 2. table content summary results association testing for each sex: Below is the list of output column to have in the summary statistics for each sex. 
 
 **SNP**	SNP label for the variant	Identifier from the annotation file	rs693
 			chr2:7819
