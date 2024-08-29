@@ -57,7 +57,7 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
 
 ### Example script for X-chromosome analysis using PLINK
 
-### Female only analysis  
+#### Female only analysis  
 
 Giving that females can be homozygote or heterozygote for each SNPS, female are analyzed in th esimilar fassion as heterozygote with a dosage model (0/1/2). the analysis here is similar to the autosomal analysis and can be achoeved with the model 1 or model 2 for x-chr analysis in plink.
 
@@ -77,10 +77,10 @@ Giving that females can be homozygote or heterozygote for each SNPS, female are 
     --remove $PATH_TO_SUBJECT_to_exclude  \  ## this can be a list of related ind that should be excluded from the model
     --out $PATH_OUTPUT_FEMALE ## path to the output summary statistics 
   ```
-  ### Male only analysis  
+#### Male only analysis  
 For the X-chromosome, given that males can only be homozygous for either the risk allele or the non-risk allele, it is crucial to determine which model (activation or inactivation of the X-chr) accurately represents the disease risk at the gene/SNP level. In our pipeline, we will be testing both models.
   
-***Model 1: Activation of the X-chromosome. Here each SNPs 0/1 in male assuming that the effect of the SNPS on the disease is equivalent to what observed in a female heterozygote***
+##### Model 1: Activation of the X-chromosome. Here each SNPs 0/1 in male assuming that the effect of the SNPS on the disease is equivalent to what observed in a female heterozygote
    
   ```
     Plink2 \
@@ -99,7 +99,7 @@ For the X-chromosome, given that males can only be homozygous for either the ris
     --out $PATH_OUTPUT_MALES ## path to the output summary statistics 
    ```
 
-### Model 2: Inactivation of the X-Chr. Here each SNPs 0/2 in male assuming that the effect of the SNPS on the disease in male are equivalent to what observed in a female homozygot at risk (this assume 2 copy of the effect allele in males)
+##### Model 2: Inactivation of the X-Chr. Here each SNPs 0/2 in male assuming that the effect of the SNPS on the disease in male are equivalent to what observed in a female homozygot at risk (this assume 2 copy of the effect allele in males)
   
   ```
     Plink2 \
@@ -120,12 +120,12 @@ For the X-chromosome, given that males can only be homozygous for either the ris
 
 ***Note: Model 2 is the default choice for X-chromosome analysis using PLINK2(https://www.cog-genomics.org/plink/2.0/assoc#glm). However, in a sex-stratified analysis focusing on females, Models 1 and 2 will yield identical results. The distinction in output results is relevant only for males, who are coded as 0/1 in Model 1 and 0/2 in Model 2.*** 
 
-## Alternative script for analysis of the X-chr using REGENIE 
+### Alternative script for analysis of the X-chr using REGENIE 
 
 The current version of Regenie is structured similarly to the default version of the X-chromosome analysis in PLINK2. In this model (Model 2), males are coded as carrying either 0 or 2 copies of the effect allele, while females are coded as carrying 0, 1, or 2 copies of the effect allele. Consequently, only the inactivation of the X-chr model will be considered when analyzing males using Regenie. bolow is an example script for running regenie for x-chr.
 
-#### Step 1 This step the same step H0 when performed for the sex stratified autosomal chromosome. Thus output generated for this step during sex stratified autosomal analysis can be used here instead
-## H0 in Females
+#### Step 1: genome wide regression model is fit to the traits. The This step the same step H0 when performed for the sex stratified autosomal chromosome. Thus output generated for this step during sex stratified autosomal analysis can be used here instead
+##### H0 in Females
 
 ```
 regenie \
@@ -134,7 +134,7 @@ regenie \
 --phenoFile pheno.txt --phenoCol CAD --keep id_females --bsize 10000 --bt --lowmem --lowmem-prefix tmp_rg1 \
 --out H0_females
 ```
-## H0 in Males
+##### H0 in Males
 
 ```
 regenie \
@@ -143,7 +143,10 @@ regenie \
 --phenoFile pheno.txt --phenoCol CAD --keep id_males --bsize 10000 --bt --lowmem --lowmem-prefix tmp_rg1 \
 --out H0_males
 ```
-## Female-only analysis (coded as 0/1/2)
+
+#### Step 2 Association testing with WGS or Imputed data
+
+##### Female-only analysis (coded as 0/1/2)
 ```
 regenie \
 --step 2 --bed Xchr --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
@@ -153,7 +156,7 @@ regenie \
 --minMAC 10 --minINFO 0.3 --af-cc \
 --out xchr_results_females
 ```
-## Male-only analysis (coded as 0/2) corresponding to x-chr inactivation
+##### Male-only analysis (coded as 0/2) corresponding to x-chr inactivation
 ```
 regenie \
 --step 2 --bed Xchr --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
