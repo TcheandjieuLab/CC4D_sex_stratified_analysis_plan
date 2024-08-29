@@ -175,6 +175,27 @@ This section describe the summary results of the analysis performed for the X-ch
 1. table content summary results for the QC
 
 2. table content summary results association testing for each sex
-https://private-user-images.githubusercontent.com/32551968/305191704-8f09b92d-9481-4f83-8a97-18d3047bc5fe.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjQ5NjMyMjksIm5iZiI6MTcyNDk2MjkyOSwicGF0aCI6Ii8zMjU1MTk2OC8zMDUxOTE3MDQtOGYwOWI5MmQtOTQ4MS00ZjgzLThhOTctMThkMzA0N2JjNWZlLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA4MjklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwODI5VDIwMjIwOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWViNTUzMTM5NTAzM2RmMTU3NGIyYjg0N2RmZDk0Yjc0Y2FmMjAxNzUxM2Y3MWViMWM5MzQyNmQxMzFlM2JiOWUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.jtauyY5pVAA2AwO5AFdart1OgwargkmnV47jJIvVDLY
+Below is the list of output column to have in the summary statistics for each sex. 
+Column header	Description	Format	Examples
+SNP	SNP label for the variant	Identifier from the annotation file	rs693
+			chr2:7819
+			chr:pos:A1:A2
+CHR	Chromosome on which SNP resides	Numeric for chromosomes 1-22; [current upload of autosomes only]	1
+POS genome build	Position of SNP on chromosome	Base pairs on human genome build used	34000345
+EFFECT_ALLELE	Allele at this site to which the effect has been estimated	Capital letter (A,C,G,T)	A
+NON_EFFECT_ALLELE	Other allele at this site (please check software documentation before label-ling a1,a2 as non-effect allele)	Capital letter (A,C,G,T)	G
+N_TOTAL	Total number of cases and controls analyzed	Numeric, integer	1243
+N_CASES	Total number of cases analyzed	Numeric, integer	1243
+N_CONTROLS	Total number of controls analyzed	Numeric, integer	1243
+EAF_ALL	Allele frequency of the EF-FECT_ALLELE in all	Frequency with 3 digits to the right of the decimal	0.354
+EAF_CASES	Allele frequency of the EF-FECT_ALLELE in cases analyzed	Frequency with 3 digits to the right of the decimal	0.354
+EAF_CONTROLS	Allele frequency of the EF-FECT_ALLELE in controls ana-lyzed	Frequency with 3 digits to the right of the decimal	0.354
+BETA	Estimate of the allelic effect, defined as the natural logarithm of the odds ratio, ln(OR)	Numeric float with 3 digits to the right of the decimal	0.203
+SE	Estimated standard error on the es-timate of the allelic effect, uncor-rected for genomic control	Numeric float with 4 digits to the right of the decimal	0.5611
+PVAL	Significance of the variant associa-tion, uncorrected for genomic con-trol	Scientific E notation with 3 digits to the right of the decimal	3.24E-10
+INFO	Measure of information content for the imputed SNP result (range 0-1) (autosomal only)	Numeric float with 3 digits to the right of the decimal (set to missing if genotyped)	0.483
+HWE (should be used on the best guest genotypes, can be obtain from Plink independently)	P-value of the HWE test 	numerical	3.00E-06
+![image](https://github.com/user-attachments/assets/12f9be07-3407-43f4-a56f-4c3f554bd4ac)
+
    
 
