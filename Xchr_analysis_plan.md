@@ -174,9 +174,8 @@ This section describe the summary results of the analysis performed for the X-ch
 
 1. table content summary results for the QC
 
-2. table content summary results association testing for each sex
-Below is the list of output column to have in the summary statistics for each sex. 
-Column header	Description	Format	Examples
+2. table content summary results association testing for each sex: Below is the list of output column to have in the summary statistics for each sex. 
+
 **SNP**	SNP label for the variant	Identifier from the annotation file	rs693
 			chr2:7819
 			chr:pos:A1:A2
