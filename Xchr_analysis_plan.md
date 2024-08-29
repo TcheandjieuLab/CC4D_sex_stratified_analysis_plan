@@ -51,6 +51,7 @@ Plink2 \
 --out $PATH_OUTPUT 
 ```
 
+### 1. table content summary results for the QC
 
 ## Section 2: In this section we will perfom analyis of CAD for the X chromosome separately for each sex
 The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow the inclusion of related individuals while PLINK do not not. 
@@ -169,10 +170,6 @@ regenie \
 
 ***note from REGENIE sofware: To include X chromosome genotypes in step 1 and/or step 2, males should be coded as diploid so that their genotypes are 0/2 (this is done automatically for BED and PGEN file formats with haploid genotypes). Chromosome values of 23 (for human analyses), X, Y, XY, PAR1 and PAR2 are all acceptable and will be collapsed into a single chromosome*** 
    
-## Section 3: description of the summary results to provide for the X-chromosome analysis
-This section describe the summary results of the analysis performed for the X-chromosome
-
-### 1. table content summary results for the QC
 
 ### 2. table content summary results association testing for each sex: Below is the list of output column to have in the summary statistics for each sex. 
 
