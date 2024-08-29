@@ -53,13 +53,13 @@ Plink2 \
 
 
 ## Section 2: In this section we will perfom analyis of CAD for the X chromosome separately for each sex
-The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow the inclusion of related individuals while PLINK do not not. we will consider 2 different model :
+The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow the inclusion of related individuals while PLINK do not not. 
 
 ### Example script for X-chromosome analysis using PLINK
 
-### Model 1: Activation of the X-chromosome. Here each SNPs is code as  0/1/2 in females and 0/1 in male
-   
-   1.a Model for female-only 
+### Female only analysis  
+
+Giving that females can be homozygote or heterozygote for each SNPS, female are analyzed in th esimilar fassion as heterozygote with a dosage model (0/1/2). the analysis here is similar to the autosomal analysis and can be achoeved with the model 1 or model 2 for x-chr analysis in plink.
 
   ```
     Plink2 \
@@ -69,7 +69,7 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
     --mac 10 \
     --mach-r2-filter 0.3 \
     --keep-females \
-    --xchr-model 1 \ ## For model 1 in PLINK2, Male dosages are on a 0..1 scale on chrX, while females are 0..2
+    --xchr-model 2 \ # model 2 is the default model in plink2
     --pheno $PATH_TO_FILE_WITH_PHENOTYPES \
     --pheno-name $CAD_Variable \
     --threads 6 \
@@ -77,8 +77,10 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
     --remove $PATH_TO_SUBJECT_to_exclude  \  ## this can be a list of related ind that should be excluded from the model
     --out $PATH_OUTPUT_FEMALE ## path to the output summary statistics 
   ```
-    
-   1.b male-only analysis
+  ### Male only analysis  
+For the X-chromosome, given that males can only be homozygous for either the risk allele or the non-risk allele, it is crucial to determine which model (activation or inactivation of the X-chr) accurately represents the disease risk at the gene/SNP level. In our pipeline, we will be testing both models.
+  
+***Model 1: Activation of the X-chromosome. Here each SNPs 0/1 in male assuming that the effect of the SNPS on the disease is equivalent to what observed in a female heterozygote***
    
   ```
     Plink2 \
@@ -97,7 +99,7 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
     --out $PATH_OUTPUT_MALES ## path to the output summary statistics 
    ```
 
-### Model 2: Inactivation of the X-Chr. This model will be conducted in males only with alleles for each SNP code as 0/2 (assuming that 2 copy of the effect allele in males)
+### Model 2: Inactivation of the X-Chr. Here each SNPs 0/2 in male assuming that the effect of the SNPS on the disease in male are equivalent to what observed in a female homozygot at risk (this assume 2 copy of the effect allele in males)
   
   ```
     Plink2 \
@@ -118,11 +120,49 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
 
 ***Note: Model 2 is the default choice for X-chromosome analysis using PLINK2(https://www.cog-genomics.org/plink/2.0/assoc#glm). However, in a sex-stratified analysis focusing on females, Models 1 and 2 will yield identical results. The distinction in output results is relevant only for males, who are coded as 0/1 in Model 1 and 0/2 in Model 2.*** 
 
-## Alternative script for analysis of the X-chr using REGENIE and SAIGE
-This section provides examples scripts for X-chr analysis using both REGENIE and SAIGE
+## Alternative script for analysis of the X-chr using REGENIE 
 
-1. X-CHR analysis using REGENIE: 
-Since REGENIE do not currently support X chromosome activation model, it can only be used to run model 2 for both Male and female.  
+The current version of Regenie is structured similarly to the default version of the X-chromosome analysis in PLINK2. In this model (Model 2), males are coded as carrying either 0 or 2 copies of the effect allele, while females are coded as carrying 0, 1, or 2 copies of the effect allele. Consequently, only the inactivation of the X-chr model will be considered when analyzing males using Regenie. bolow is an example script for running regenie for x-chr.
+
+#### Step 1 This step the same step H0 when performed for the sex stratified autosomal chromosome. Thus output generated for this step during sex stratified autosomal analysis can be used here instead
+## H0 in Females
+
+```
+regenie \
+--step 1 --bed 100K   \  ## bed file with 100K independent SNVs on autosomal chromosomes
+--covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
+--phenoFile pheno.txt --phenoCol CAD --keep id_females --bsize 10000 --bt --lowmem --lowmem-prefix tmp_rg1 \
+--out H0_females
+```
+## H0 in Males
+
+```
+regenie \
+--step 1 --bed 100K   \ ## bed file with 100K independent SNVs on autosomal chromosomes
+--covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
+--phenoFile pheno.txt --phenoCol CAD --keep id_males --bsize 10000 --bt --lowmem --lowmem-prefix tmp_rg1 \
+--out H0_males
+```
+## Female-only analysis (coded as 0/1/2)
+```
+regenie \
+--step 2 --bed Xchr --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
+--phenoFile pheno.txt --phenoCol CAD --keep id_females \
+--bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_females_pred.list \  ## H0_females_pred.list is obtained in regenie step 1 from the sex stratified autosomal analysis
+--threads $i  #multithreads with a number appropriate to your cluster \
+--minMAC 10 --minINFO 0.3 --af-cc \
+--out xchr_results_females
+```
+## Male-only analysis (coded as 0/2) corresponding to x-chr inactivation
+```
+regenie \
+--step 2 --bed Xchr --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
+--phenoFile pheno.txt --phenoCol CAD --keep id_males \
+--bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_males_pred.list \   ## H0_males_pred.list is obtained in regenie step 1 from the sex stratified autosomal analysis
+--threads $i  #multithreads with a number appropriate to your cluster \
+--minMAC 10 --minINFO 0.3 --af-cc \
+--out xchr_results_females
+```
 
 ***note from REGENIE sofware: To include X chromosome genotypes in step 1 and/or step 2, males should be coded as diploid so that their genotypes are 0/2 (this is done automatically for BED and PGEN file formats with haploid genotypes). Chromosome values of 23 (for human analyses), X, Y, XY, PAR1 and PAR2 are all acceptable and will be collapsed into a single chromosome*** 
    
