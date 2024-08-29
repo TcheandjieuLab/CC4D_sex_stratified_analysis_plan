@@ -51,7 +51,31 @@ Plink2 \
 --out $PATH_OUTPUT 
 ```
 
-### 1. table content summary results for the QC
+### Table with summary results of the QC step should be structure as follow:
+**SNP**	SNP label for the variant	Identifier from the annotation file	rs693
+			chr2:7819
+			chr:pos:A1:A2
+
+**CHR**	Chromosome on which SNP resides	Numeric for chromosomes 1-22; [current upload of autosomes only]	1
+
+**POS** genome build	Position of SNP on chromosome	Base pairs on human genome build used	34000345
+
+**EFFECT_ALLELE**	Allele at this site to which the effect has been estimated	Capital letter (A,C,G,T)	A
+
+**NON_EFFECT_ALLELE**	Other allele at this site (please check software documentation before label-ling a1,a2 as non-effect allele)	Capital letter (A,C,G,T)	G
+
+**EAF_in_males**	Allele frequency of the EF-FECT_ALLELE in males	Frequency with 3 digits to the right of the decimal	0.354
+
+**EAF_in_females**	Allele frequency of the EF-FECT_ALLELE in females	Frequency with 3 digits to the right of the decimal	0.354
+
+**pvalue_diff_EAF**	pvalue indicating hte difference in allelic frequency between males and females
+
+**pvalue_diff_missingness**	pvalue indicating the difference in missingness between between males and females
+
+**het_male**	value indicating the rate of heterozygote for each SNPs in males only (heterozygote rate should be run in males only)
+
+**HWE**		pvalue for HWE test for each SNPs in females only (HWE shoud be run in female only)
+
 
 ## Section 2: In this section we will perfom analyis of CAD for the X chromosome separately for each sex
 The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow the inclusion of related individuals while PLINK do not not. 
