@@ -204,8 +204,6 @@ regenie \
 **PVAL**	Significance of the variant associa-tion, uncorrected for genomic con-trol	Scientific E notation with 3 digits to the right of the decimal	3.24E-10
 
 **INFO**	Measure of information content for the imputed SNP result (range 0-1) (autosomal only)	Numeric float with 3 digits to the right of the decimal (set to missing if genotyped)	0.483
-
-**HWE** (should be used on the best guest genotypes, can be obtain from Plink independently)	P-value of the HWE test 	numerical	3.00E-06
 ![image](https://github.com/user-attachments/assets/12f9be07-3407-43f4-a56f-4c3f554bd4ac)
 
    
