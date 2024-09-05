@@ -81,6 +81,13 @@ Plink2 \
 The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow the inclusion of related individuals while PLINK do not not. 
 
 ### Example script for X-chromosome analysis using PLINK
+***NOTE: While sharing your summary statistics, please structure the file name as follow:*** 
+
+***Summary statistics from female: Xchr_female.[ancestry].[cohortname].[sex].[first_lastname].[phenotype].[analysissoftware].[date]****
+
+***Summary statistics from male***: 
+-	***Xchr_male_model1.plink.[ancestry].[cohortname].[first_lastname].[phenotype].[date]***
+-	***Xchr_male_model2.[ancestry].[cohortname].[first_lastname].[phenotype].[analysissoftware].[date]***
 
 #### Female only analysis  
 
