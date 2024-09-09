@@ -1,6 +1,6 @@
-#  Analysis plan for sex stratify autosomal chromosomes
+#  Analysis plan for sex stratified autosomal chromosomes
 
-The purpose of this pipeline is to provide detail on sex stratif analysis for CAD . 
+The purpose of this pipeline is to provide detail on sex stratified analysis for CAD. 
 Please test additive models using logistic regression, accounting for genotype imputation uncertainty (i.e. SNP probability or dosage).
 
 **NOTE: While sharing your summary statistics, please structure the file name as follow: 
@@ -11,6 +11,8 @@ Primary model here will be:
 a. Males: CAD(all CAD cases vs. all non-CAD controls) = $SNP + Study covariates 
 b. Females: CAD (all CAD cases vs. all non-CAD controls) = $SNP + Study covariates 
 c. The should include the following filtering criteria: SNPs with imputation quality (INFO) > 0.3 and Mininum Allele Count (MAC)=10
+
+Scripts for different software are provided as interchangeable options. Please use the software that best fits your data
 
 ### 1. Example script using PLINK
 
@@ -126,9 +128,7 @@ id_males: FID IID
 
 ***The file is space-delimited and can have many more covariates. Users have the flexibility to use the set of covariates in the regenie command-line above.***
 
-### 3. Example script using SAIGE
-
-### 4. List of variables to provide in the summary statistics for each sex specific GWAS
+### 3. List of variables to provide in the summary statistics for each sex specific GWAS
 **SNP**:	SNP label for the variant	Identifier from the annotation file. Example: rs693 (chr2:7819; chr:pos:A1:A2)
 
 **CHR**:	Chromosome on which SNP resides	Numeric for chromosomes 1-22. Example:	1
