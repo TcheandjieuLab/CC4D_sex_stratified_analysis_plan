@@ -35,6 +35,7 @@ for chr in {1..22}; do
   --memory 42000 --covar-variance-standardize \
   --pheno-name CAD \
   --out male.output.fileschr${chr}.txt
+done
   ```
 1.b. Analysis in females
 
@@ -53,6 +54,7 @@ for chr in {1..22}; do
   --memory 42000 --covar-variance-standardize \
   --pheno-name CAD \
   --out females.output.fileschr${chr}.txt
+done
   ```
 ### 2. Example script using REGENIE [module load Regenie/v2.0.1 (users should have regenie installed. I am using v2.0.1)]
 
