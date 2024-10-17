@@ -7,7 +7,7 @@ In this section, we will perform analysis that are helpful for quality control o
    **Important note: If sex is provided as part of the genotype data (e.g., in the .fam file), plink will auto assign male and female. This will then cause the sofware to systematically estimate the rate of heterozygozity for male to be zero and prevent us from catching genotyping errors. To avoid this, the sex should be provided as a covariate file separately, and should be removed put as missing in the .fam file** 
 
 ```
-   Plink2 \
+   plink2 \
    --bfile $PATH_TO_PLINK_FILES \
    --chr X \
    --covar $PATH_TO_FILE_WITH_SEX \ ## sex should be provide as a separate covariatefile to avoid auto-conversion auto assigment of sex in male and female
@@ -20,7 +20,8 @@ In this section, we will perform analysis that are helpful for quality control o
 **Important note: If sex is provide as part of the genotype data, plink will auto assign male and female. This will then cause the sofware to systematically correct the MAF in male and prevent us from catching genotyping errors. To avoid this, we sex should be provide as a covariate file separately.** 
 
 ```
-Plink2 \
+# '--assoc' is deprecated in plink2, and plink2 seems not to provide Fisher's exact test. We may use plink instead.
+plink \
 --bfile  $PATH_TO_PLINK_FILES \
 --pheno $PATH_TO_FILE_WITH_SEX \ ## sex should be provide as a separate covariate file to avoid auto-conversion auto assigment of sex in male and female
 --pheno-name $SEX_Variable  --mfilter 12 --assoc fisher \
@@ -30,7 +31,8 @@ Plink2 \
 4. **Test for differential missingness between males and females**
 
 ```
-Plink2 \
+# '--test-missing' is deprecated in plink2. We may use plink instead.
+plink \
 --bfile  $PATH_TO_PLINK_FILES \
 --pheno $PATH_TO_FILE_WITH_SEX \ ## sex should be provide as a separate file to avoid auto-conversion auto assigment of sex in male ans female
 --pheno-name $SEX_Variable  --test-missing \
@@ -40,13 +42,20 @@ Plink2 \
 5. **HWE test in female controls only**
    
 ```
-Plink2 \
+# Multiple '--keep-if' flags cause an error. Also, --keep-if seems not to support multiple conditions with AND (&) or OR (|)
+# We may filter with one variable first and run plink2 with the filtered files. 
+plink2 \
 --bfile  $PATH_TO_PLINK_FILES \
+--covar $PATH_SEX_OR_COVAR_INCLUDINGSEX \
+--keep-if "$SEX_Variable==2" \ ## keeep female only
+--make-bed \
+--out $PATH_OUTPUT_TMP
+
+plink2 \
+--bfile $PATH_OUTPUT_TMP \ ## Intermediate file from the previous step
 --pheno $PATH_TO_FILE_WITH_PHENOTYPES \ ## path to the phenotypes files
 --pheno-name $CAD_Variable \
---keep-if "$CAD_Variable==1" | ## keep control only
---covar $PATH_SEX_OR_COVAR_INCLUDINGSEX
---keep-if "$SEX_Variable==2" \ ## keeep female only
+--keep-if "$CAD_Variable==1" \ ## keep control only
 --hardy \
 --out $PATH_OUTPUT 
 ```
@@ -94,7 +103,7 @@ The analysis can be done using PLINK, REGENIE or SAIGE. REGENIE and SAIGE allow 
 Giving that females can be homozygote or heterozygote for each SNPS, female are analyzed in th esimilar fassion as heterozygote with a dosage model (0/1/2). the analysis here is similar to the autosomal analysis and can be achoeved with the model 1 or model 2 for x-chr analysis in plink.
 
   ```
-    Plink2 \
+    plink2 \
     --pfile $PATH_TO_PLINK_FILES \
     --covar $PATH_TO_FILE_WITH_COVARIATE \
     --covar-name $PATH_SEX_OR_COVAR_INCLUDINGSEX \
@@ -115,7 +124,7 @@ For the X-chromosome, given that males can only be homozygous for either the ris
 ##### Model 1: Activation of the X-chromosome. Here each SNPs 0/1 in male assuming that the effect of the SNPS on the disease is equivalent to what observed in a female heterozygote
    
   ```
-    Plink2 \
+    plink2 \
     --pfile $PATH_TO_PLINK_FILES \
     --covar $PATH_TO_FILE_WITH_COVARIATE \
     --covar-name $PATH_SEX_OR_COVAR_INCLUDINGSEX \
