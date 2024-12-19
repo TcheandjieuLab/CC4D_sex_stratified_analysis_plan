@@ -23,7 +23,7 @@ In this section, we will perform analysis that are helpful for quality control o
 Plink2 \
 --bfile  $PATH_TO_PLINK_FILES \
 --pheno $PATH_TO_FILE_WITH_SEX \ ## sex should be provide as a separate covariate file to avoid auto-conversion auto assigment of sex in male and female
---pheno-name $SEX_Variable  --mfilter 12 --assoc fisher \
+--pheno-name $SEX_Variable  --mfilter 12 --glm --xchr-model 1 \ ## --xchr-model 1 will help keep the association test as Male dosages are on a 0..1 scale on chrX, while females are 0..2 which is what  we want here 
 --out $PATH_OUTPUT
 ```
 
@@ -46,7 +46,7 @@ Plink2 \
 --pheno-name $CAD_Variable \
 --keep-if "$CAD_Variable==1" | ## keep control only
 --covar $PATH_SEX_OR_COVAR_INCLUDINGSEX
---keep-if "$SEX_Variable==2" \ ## keeep female only
+--keep-females ## keep female only
 --hardy \
 --out $PATH_OUTPUT 
 ```
