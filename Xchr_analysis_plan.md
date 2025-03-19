@@ -97,7 +97,7 @@ Giving that females can be homozygote or heterozygote for each SNPS, female are 
     Plink2 \
     --pfile $PATH_TO_PLINK_FILES \
     --covar $PATH_TO_FILE_WITH_COVARIATE \
-    --covar-name $PATH_SEX_OR_COVAR_INCLUDINGSEX \
+    --covar-name $PATH_SEX_OR_COVAR \
     --mac 10 \
     --mach-r2-filter 0.3 \
     --keep-females \
@@ -137,10 +137,10 @@ For the X-chromosome, given that males can only be homozygous for either the ris
     Plink2 \
     --pfile $PATH_TO_PLINK_FILES \
     --covar $PATH_TO_FILE_WITH_COVARIATE \
-    --covar-name $PATH_SEX_OR_COVAR_INCLUDINGSEX \
+    --covar-name $PATH_SEX_OR_COVAR \
     --mac 10 \
     --mach-r2-filter 0.3 \
-    --keep-females \
+    --keep-males \
     --pheno $PATH_TO_FILE_WITH_PHENOTYPES \
     --pheno-name $CAD_Variable \
     --threads $number_of_thread \ ## the number of thread here should be adapted to the computing system used (6 is often well tolerated)
