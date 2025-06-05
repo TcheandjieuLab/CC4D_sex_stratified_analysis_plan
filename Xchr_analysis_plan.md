@@ -192,7 +192,7 @@ regenie \
 For the X-chromosome, given that males can only be homozygous for either the risk allele or the non-risk allele, it is crucial to determine which model (activation or inactivation of the X-chr) accurately represents the disease risk at the gene/SNP level. In our pipeline, we will be testing both models.
   
 ##### Model 1: Activation of the X-chromosome. Here each SNPs 0/1 in male assuming that the effect of the SNPS on the disease is equivalent to what observed in a female heterozygote 
-***Note: this model has just been recently implemented in REGENIE (REGENIE V4.1) https://github.com/rgcgithub/regenie/releases/tag/v4.1. Here to specifically code male as 0-1, the option ```--skip-dosage-comp``` should to be provide.***
+*Note: this model has just been recently implemented in REGENIE (REGENIE V4.1) https://github.com/rgcgithub/regenie/releases/tag/v4.1. Here to specifically code male as 0-1, the option ```--skip-dosage-comp``` should to be provide.*
 
 ```
 regenie \
@@ -207,7 +207,7 @@ regenie \
 
 
 ##### Model 2: Assuming Xchr anactivation (here male genotypes are coded as 0/2). 
-***This is the default model for Xchr analysis in REGENIE. By default, REGENIE assumes males are coded as 0/2 in the non-PAR regions of the genotype file***
+*This is the default model for Xchr analysis in REGENIE. By default, REGENIE assumes males are coded as 0/2 in the non-PAR regions of the genotype file*
 ```
 regenie \
 --step 2 --bed Xchr --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
@@ -218,7 +218,7 @@ regenie \
 --out xchr_results_females
 ```
 
-***note from REGENIE sofware: To include X chromosome genotypes in step 1 and/or step 2, males should be coded as diploid so that their genotypes are 0/2 (this is done automatically for BED and PGEN file formats with haploid genotypes). Chromosome values of 23 (for human analyses), X, Y, XY, PAR1 and PAR2 are all acceptable and will be collapsed into a single chromosome*** 
+***note from REGENIE sofware: To include X chromosome genotypes in step 1 and/or step 2, males should be coded as diploid so that their genotypes are 0/2 (this is done automatically for BED and PGEN file formats with haploid genotypes). Chromosome values of 23 (for human analyses), X, Y, XY, PAR1 and PAR2 are all acceptable and will be collapsed into a single chromosome However, there is an updated version of the software (RGENIE V4.1) that allow a model in which male are code on 0-1 scale. to allow this model, the option ```--skip-dosage-comp``` shoould be provided. more indo at https://github.com/rgcgithub/regenie/releases/tag/v4.1*** 
    
 
 ### 2. table content summary results association testing for each sex: Below is the list of output column to have in the summary statistics for each sex. 
