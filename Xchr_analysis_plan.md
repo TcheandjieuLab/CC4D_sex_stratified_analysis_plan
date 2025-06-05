@@ -205,7 +205,7 @@ regenie \
 ```
 
 
-##### Male-only analysis (coded as 0/2) corresponding to x-chr inactivation
+##### Model 2: Assuming Xchr anactivation (here male genotypes are coded as 0/2) 
 ```
 regenie \
 --step 2 --bed Xchr --covarFile pheno.txt --covarCol PC1,PC2,PC3,PC4,PC5,Age \
