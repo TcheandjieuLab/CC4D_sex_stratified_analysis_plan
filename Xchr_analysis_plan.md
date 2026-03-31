@@ -202,7 +202,7 @@ regenie \
 --skip-dosage-comp \ ## With this option, male genotypes (or dosages) will be divided by 2 in non-PAR regions (i.e. male genotypes will be on a [0,1])
 --threads $i  #multithreads with a number appropriate to your cluster \
 --minMAC 10 --minINFO 0.3 --af-cc \
---out xchr_results_females
+--out xchr_results_males_model1
 ```
 
 
@@ -215,7 +215,7 @@ regenie \
 --bsize 10000 --bt --firth --approx --pThresh 0.05 --pred H0_males_pred.list \   ## H0_males_pred.list is obtained in regenie step 1 from the sex stratified autosomal analysis
 --threads $i  #multithreads with a number appropriate to your cluster \
 --minMAC 10 --minINFO 0.3 --af-cc \
---out xchr_results_females
+--out xchr_results_males_model2
 ```
 
 ***Note from REGENIE sofware: To include X chromosome genotypes in step 1 and/or step 2, males should be coded as diploid so that their genotypes are 0/2 (this is done automatically for BED and PGEN file formats with haploid genotypes). Chromosome values of 23 (for human analyses), X, Y, XY, PAR1 and PAR2 are all acceptable and will be collapsed into a single chromosome. However, there is an updated version of the software (RGENIE V4.1) that allow a model in which male are code on 0-1 scale. to allow this model, the option ```--skip-dosage-comp``` shoould be provided. more indo at https://github.com/rgcgithub/regenie/releases/tag/v4.1*** 
