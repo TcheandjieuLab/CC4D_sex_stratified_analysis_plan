@@ -165,7 +165,7 @@ id_males: FID IID
 ## Section 2: sex interaction model (will be following the analytical pipeline from GLGC)
 
 the sex-interaction test will be done using GEM (https://github.com/large-scale-gxe-methods/GEM). 
-1. This analysis should be conducted using **Unrealted individual only**.
+1. This analysis should be conducted using **Unrelated individual only**.
 2. For consistency in effect estimate report, We will have Male and Female with the same codage across all studies:
    
     **a. Male coded as 1**
